@@ -8,21 +8,27 @@
       <th>Author</th>
       <th>Asin</th>
       <th>Number of pages</th>
+      <th>User Id</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @books.each do |book| %>
+      <% if book.user == current_user %>
       <tr>
         <td><%= book.title %></td>
         <td><%= book.author %></td>
         <td><%= book.asin %></td>
         <td><%= book.number_of_pages %></td>
+        <td><%= book.user_id %></td>
         <td><%= link_to 'Show', book %></td>
+
         <td><%= link_to 'Edit', edit_book_path(book) %></td>
         <td><%= link_to 'Destroy', book, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+  
+        </tr>
+        <% end %>
     <% end %>
   </tbody>
 </table>
