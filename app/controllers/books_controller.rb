@@ -58,14 +58,15 @@ before_action :correct_user, only: [:edit, :update, :destroy]
     end
   end
 
-def correct_user
-@book = current_user.books.find_by(id: params[:id])
-redirect_to books_path, notice: "NOt authorized to edit this book" if @book.nil?
-end
-
-
-
+  
+  
+  
   private
+  
+  def correct_user
+  @book = current_user.books.find_by(id: params[:id])
+  redirect_to books_path, notice: "NOt authorized to edit this book" if @book.nil?
+  end
     # Use callbacks to share common setup or constraints between actions.
     def set_book
       @book = Book.find(params[:id])
