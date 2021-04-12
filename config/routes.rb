@@ -6,7 +6,10 @@ Rails.application.routes.draw do
   devise_for :users, path: 'users', controllers: {
     sessions: 'users/sessions'
   }
-  resources :books
+
+  resources :books do
+  resources :comments
+end
  # get 'home/index'
  get 'home/about'
   root 'home#index'

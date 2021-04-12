@@ -1,6 +1,13 @@
-
-
 <div class="card">
+
+  <% unless @book.comments.empty? %>
+    <%= @book.comments.count %>
+  <% end %>comments</p></footer>
+<% unless @book.comments.empty? %>
+  <%= render @comments %>
+  <%= will_paginate @comments %>
+<% end %>
+
   <div class="card-header">
   <%= @book.author %>  </div>
   <div class="card-body">
